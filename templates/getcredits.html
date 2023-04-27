@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Credits</title>
+</head>
+<body>
+<form>
+			<label for="credits">Credits:</label><br>
+			<input type="number" id="credits" name="credits" value=""><br>
+			<label for="username">Username:</label><br>
+			<input type="text" id="username" name="username" value=""><br>
+            <input type="button" id="buttonAddCredits" value="Add Credits"><br>
+</form>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+$("#buttonAddCredits").click(function(){
+
+
+			$.ajax({
+			type:'POST',
+			 url: '/reqcredits',
+  	ContentType: 'application/json',
+  data:{
+  'credits': document.getElementById("credits").value,
+  'username': document.getElementById("username").value //  to the GET parameters
+	},
+success: function(response){
+		console.log(response)
+		console.log(typeof response)
+
+		if(response=="fail" || response=='0')
+        	alert("ERROR. Invalid input or username does not exist")
+
+        else
+            alert("SUCCESS! Log in on your account again to see change")
+
+}
+})
+
+
+
+		})
+
+</script>
+</body>
+</html>

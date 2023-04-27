@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        #loginBOX
+	{
+		border-style: solid;
+		border-color: rgb(12, 11, 11);
+		font-size: 20px;
+		background-color: rgba(153, 175, 156, 0.562);
+		padding: 10px;
+		margin-top:10px;
+		width:200px;
+		text-align: center;
+	}
+    </style>
+</head>
+<body>
+
+<div id="loginBOX">
+		<form>
+			<label for="username">Username:</label><br>
+			<input type="text" id="username" name="username" value=""><br>
+			<label for="pwd">Password:</label><br>
+			<input type="password" id="pwd" name="pwd" value="">
+		</form>
+	</div>
+<div><button id="btnsignup">Sign Up</button></div>
+
+<div id="status"></div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+$("#btnsignup").click(function(){
+
+
+			$.ajax({
+			type:'POST',
+			 url: '/reqsignup',
+  	ContentType: 'application/json',
+  data:{
+  'username': document.getElementById("username").value,
+  'password': document.getElementById("pwd").value //  to the GET parameters
+	},
+success: function(response){
+		console.log(response)
+		console.log(typeof response)
+
+		if(response=="fail" || response=='0')
+        	alert("ERROR. Invalid input or username taken")
+
+}
+})
+
+
+
+		})
+
+</script>
+</body>
+</html>

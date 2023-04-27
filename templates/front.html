@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Roulette</title>
+	<style>
+        .container{
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:center;
+
+	}
+
+	.containerColumns{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+
+	}
+
+	.item {
+	border-style: solid;
+	border-color:black;
+  	order: 0;
+	padding: 10px;
+	font-size: 25px;
+	flex-grow: 5;
+	text-align: center;
+	}
+
+	.itemBox
+	{
+  	order: 0;
+	flex-grow:5;
+	font-size: 25px;
+	text-align: center;
+	}
+	.itemColumns{
+	border-style: solid;
+	border-color:black;
+  	order: 0;
+	padding: 10px;
+	font-size: 25px;
+	flex-shrink: 0;
+	text-align: center;
+	writing-mode: vertical-rl
+
+	}
+	.itemColumns2{
+	border-style: solid;
+	border-color:black;
+  	order: 0;
+	padding: 10px;
+	font-size: 25px;
+	flex-grow: 0;
+	text-align: center;
+	writing-mode: vertical-rl
+
+	}
+	.itemColumnsContainer{
+  	order: 0;
+	font-size: 25px;
+	flex-grow: 2;
+	text-align: center;
+	;
+
+	}
+
+	body
+	{
+		margin: 50px;
+		background-color:rgb(46, 139, 59);
+		font-weight: bold;
+		position: fixed;
+
+	}
+	.blankDiv
+	{
+	display:block;
+	width:54px;
+	}
+	.yellowNums
+	{
+		color:black;
+	}
+	.redNums
+	{
+		color:rgb(92, 7, 11);
+	}
+
+	.main {
+		display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:center;
+
+	}
+
+	.mainItem
+	{
+		margin:30px;
+	}
+
+	.selected
+	{
+		border-color:rgb(184, 13, 13);
+		font-weight: bolder;
+	}
+
+	#strt{
+		border-style: solid;
+		border-color: rgb(92, 7, 11);
+		font-size: 35px;
+		color: black;
+		padding: 10px;
+		width:200px;
+		text-align: center;
+
+	}
+	#logIn
+	{
+		border-style: solid;
+		border-color: rgb(92, 7, 11);
+		font-size: 20px;
+		color: black;
+		padding: 10px;
+		margin-top:10px;
+		width:200px;
+		text-align: center;
+	}
+	#loginBOX
+	{
+		border-style: solid;
+		border-color: rgb(12, 11, 11);
+		font-size: 20px;
+		background-color: rgba(153, 175, 156, 0.562);
+		padding: 10px;
+		margin-top:10px;
+		width:200px;
+		text-align: center;
+	}
+	#signUp
+	{
+	color:black;
+		text-decoration:none;
+		text-align: center;
+	}
+	a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+#logout
+{
+	display:none;
+}
+#getcredits
+{
+	display:none;
+}
+#invest
+{
+	display:none;
+}
+#invest
+{
+	display:none;
+}
+#labelCredits
+{
+	display:none;
+}
+    </style>
+</head>
+
+
+
+<body>
+
+<div class="main">
+	<div class="mainItem">
+			<div class="container">
+				<div class="item yellowNums" id="0">0</div>
+				<div class="blankDiv"></div>
+				<div class="blankDiv"></div>
+			</div>
+
+		<div class="containerColumns">
+		<div class="container itemBox">
+
+				<div class="containerColumns itemBox">
+
+						<div class="container itemBox">
+
+							<div class="containerColumns itemBox">
+
+								<div class="container itemBox">
+									<div class="item redNums" id="1">1</div>
+									<div class="item yellowNums" id="2">2</div>
+									<div class="item redNums" id="3">3</div>
+								</div>
+
+
+								<div class="container itemBox">
+									<div class="item yellowNums" id="4">4</div>
+									<div class="item redNums" id="5">5</div>
+									<div class="item yellowNums" id="6">6</div>
+
+								</div>
+
+							</div>
+
+							<div class="itemColumns yellowNums" id="1to18">1-18</div>
+
+						</div>
+
+
+
+					<div class="container itemBox">
+
+							<div class="containerColumns itemBox">
+
+								<div class="container itemBox">
+									<div class="item redNums" id="7">7</div>
+									<div class="item yellowNums" id="8">8</div>
+									<div class="item redNums" id="9">9</div>
+								</div>
+								<div class="container itemBox">
+									<div class="item yellowNums" id="10">10</div>
+									<div class="item yellowNums" id="11">11</div>
+									<div class="item redNums" id="12">12</div>
+								</div>
+
+							</div>
+
+							<div class="itemColumns yellowNums" id="even">EVEN</div>
+
+					</div>
+				</div>
+
+
+
+			<div class="itemColumns2 yellowNums" id="1to12">1-12</div>
+		</div>
+
+		<div class="container itemBox">
+
+			<div class="containerColumns itemBox">
+
+					<div class="container itemBox">
+
+						<div class="containerColumns itemBox">
+
+							<div class="container itemBox">
+								<div class="item yellowNums" id="13">13</div>
+								<div class="item redNums" id="14">14</div>
+								<div class="item yellowNums" id="15">15</div>
+							</div>
+
+
+							<div class="container itemBox">
+								<div class="item redNums" id="16">16</div>
+								<div class="item yellowNums" id="17">17</div>
+								<div class="item redNums" id="18">18</div>
+
+							</div>
+
+						</div>
+
+						<div class="itemColumns redNums" id="red">RED</div>
+
+
+					</div>
+
+
+
+				<div class="container itemBox">
+
+						<div class="containerColumns itemBox">
+
+							<div class="container itemBox">
+								<div class="item redNums" id="19">19</div>
+								<div class="item yellowNums" id="20">20</div>
+								<div class="item redNums" id="21">21</div>
+							</div>
+							<div class="container itemBox">
+								<div class="item yellowNums" id="22">22</div>
+								<div class="item redNums" id="23">23</div>
+								<div class="item yellowNums" id="24">24</div>
+							</div>
+
+						</div>
+
+						<div class="itemColumns yellowNums" id="blk">BLK</div>
+
+				</div>
+			</div>
+
+
+
+			<div class="itemColumns2 yellowNums" id="13to24">13-24</div>
+		</div>
+
+
+
+
+		<div class="container itemBox">
+
+			<div class="containerColumns itemBox">
+
+					<div class="container itemBox">
+
+						<div class="containerColumns itemBox">
+
+							<div class="container itemBox">
+								<div class="item redNums" id="25">25</div>
+								<div class="item yellowNums" id="26">26</div>
+								<div class="item redNums" id="27">27</div>
+							</div>
+
+
+							<div class="container itemBox">
+								<div class="item yellowNums" id="28">28</div>
+								<div class="item yellowNums" id="29">29</div>
+								<div class="item redNums" id="30">30</div>
+
+							</div>
+
+						</div>
+
+						<div class="itemColumns yellowNums" id="odd">ODD</div>
+
+					</div>
+
+
+
+				<div class="container itemBox">
+
+						<div class="containerColumns itemBox">
+
+							<div class="container itemBox">
+								<div class="item yellowNums" id="31">31</div>
+								<div class="item redNums" id="32">32</div>
+								<div class="item yellowNums" id="33">33</div>
+							</div>
+							<div class="container itemBox">
+								<div class="item redNums" id="34">34</div>
+								<div class="item yellowNums" id="35">35</div>
+								<div class="item redNums" id="36">36</div>
+							</div>
+
+						</div>
+
+						<div class="itemColumns yellowNums" id="19to36">19-36</div>
+
+				</div>
+			</div>
+
+
+
+		<div class="itemColumns2 yellowNums" id="25to36">25-36</div>
+		</div>
+
+		<div class="container itemBox">
+			<div class="item yellowNums" id="1rw">1rw</div>
+			<div class="item yellowNums" id="2rw">2rw</div>
+			<div class="item yellowNums" id="3rw">3rw</div>
+
+			<div class="blankDiv"></div>
+			<div class="blankDiv"></div>
+		</div>
+
+		</div>
+	</div>
+	<div class="mainItem">
+
+
+		<div id="strt">START</div>
+		<div id="loginBOX">
+		<form>
+			<label for="username">Username:</label><br>
+			<input type="text" id="username" name="username" value=""><br>
+			<label for="pwd">Password:</label><br>
+			<input type="password" id="pwd" name="pwd" value="">
+		</form>
+	</div>
+		<div id="logIn">LOG IN</div>
+		<div id="signUp"><a  target="_blank" href="/signup">Sign up</a></div>
+
+		<div id="name"></div>
+		<div id="credits"></div>
+		<button id="logout"></button>
+		<a id="getcredits" href='/getcreds' target="_blank"></a>
+		<label for="invest" id="labelCredits">Credits to invest:</label>
+		<input type="number" id="invest" name="invest" value=""><br>
+
+		<div id="didWin"></div>
+
+		<div id="WinNum"></div>
+
+	</div>
+
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+var s = null;
+var loggedIn=false;
+
+$(document).ready(function(){
+
+		for (let index = 0; index < 37; index++) {
+			$("#"+index).click(function()
+		{
+			$("*").removeClass("selected");
+			$(this).addClass("selected");
+			$("#selNo").text("You selected number "+ this.id);
+			s=this.id;
+
+
+
+		})
+
+		}
+		for (let index = 1; index < 4; index++) {
+			$("#"+index+"rw").click(function()
+		{
+			$("*").removeClass("selected");
+			$(this).addClass("selected");
+			$("#selNo").text("You selected number "+ this.id);
+			s=this.id;
+
+
+		})
+
+		}
+
+		$("#1to18").click(function()
+		{
+			$("*").removeClass("selected");
+			$(this).addClass("selected");
+			$("#selNo").text("You selected number "+ this.id);
+			s=this.id;
+
+
+
+		})
+		$("#1to12").click(function()
+		{
+			$("*").removeClass("selected");
+			$(this).addClass("selected");
+			$("#selNo").text("You selected number "+ this.id);
+			s=this.id;
+
+
+
+		})
+		$("#even").click(function()
+		{
+			$("*").removeClass("selected");
+			$(this).addClass("selected");
+			$("#selNo").text("You selected number "+ this.id);
+			s=this.id;
+
+
+
+		})
+		$("#red").click(function()
+		{
+			$("*").removeClass("selected");
+			$(this).addClass("selected");
+			$("#selNo").text("You selected number "+ this.id);
+			s=this.id;
+
+
+
+		})
+		$("#blk").click(function()
+		{
+			$("*").removeClass("selected");
+			$(this).addClass("selected");
+			$("#selNo").text("You selected number "+ this.id);
+			s=this.id;
+
+
+
+		})
+
+		$("#13to24").click(function()
+		{
+			$("*").removeClass("selected");
+			$(this).addClass("selected");
+			$("#selNo").text("You selected number "+ this.id);
+			s=this.id;
+
+
+
+		})
+		$("#odd").click(function()
+		{
+			$("*").removeClass("selected");
+			$(this).addClass("selected");
+			$("#selNo").text("You selected number "+ this.id);
+			s=this.id;
+
+
+
+		})
+		$("#19to36").click(function()
+		{
+			$("*").removeClass("selected");
+			$(this).addClass("selected");
+			$("#selNo").text("You selected number "+ this.id);
+			s=this.id;
+
+
+
+		})
+		$("#25to36").click(function()
+		{
+			$("*").removeClass("selected");
+			$(this).addClass("selected");
+			$("#selNo").text("You selected number "+ this.id);
+			s=this.id;
+
+
+
+		})
+
+
+
+		$("#logout").click(function(){
+		loggedIn=false;
+		document.getElementById("logIn").style.display = "block";
+				document.getElementById("loginBOX").style.display = "block";
+				document.getElementById("signUp").style.display = "block";
+				document.getElementById("logout").style.display = "none";
+				document.getElementById("getcredits").style.display = "none";
+				document.getElementById("name").style.display = "none";
+				document.getElementById("credits").style.display = "none";
+				document.getElementById("didWin").style.display = "none";
+				document.getElementById("WinNum").style.display = "none";
+				document.getElementById("invest").style.display = "none";
+				document.getElementById("labelCredits").style.display = "none";
+				$("#didWin").text("");
+				$("#WinNum").text("");
+
+		})
+		$("#logIn").click(function(){
+
+
+			$.ajax({
+			type:'POST',
+			 url: '/logIn',
+  	ContentType: 'application/json',
+  data:{
+  'username': document.getElementById("username").value,
+  'password': document.getElementById("pwd").value //  to the GET parameters
+	},
+success: function(response){
+		console.log(response)
+
+		console.log(typeof response)
+
+		if(response=="fail" || response=='0')
+			alert("Invalid username or password")
+        else
+ 			{
+				 loggedIn=true
+				info=response.split(' ');
+				document.getElementById("didWin").style.display = "block";
+				document.getElementById("WinNum").style.display = "block";
+				document.getElementById("logIn").style.display = "none";
+				document.getElementById("loginBOX").style.display = "none";
+				document.getElementById("signUp").style.display = "none";
+				document.getElementById("logout").style.display = "block";
+				document.getElementById("getcredits").style.display = "block";
+				document.getElementById("name").style.display = "block";
+				document.getElementById("credits").style.display = "block";
+				document.getElementById("invest").style.display = "block";
+				document.getElementById("labelCredits").style.display = "block";
+				$("#logout").text("Log out");
+				$("#getcredits").text("Get More Credits");
+
+
+				cr=info[2]
+        		username=info[1]
+
+				$("#name").text("Welcome "+username+"!")
+				$("#credits").text("Right now you have "+cr+" credits")
+
+			}
+
+}
+})
+
+
+
+		})
+		$("#strt").click(function()
+		{
+			var invVal=document.getElementById("invest").value
+			if(loggedIn && s!=null && parseInt(invVal)<=cr)
+			{var r;
+			$.ajax({
+			type:'POST',
+			 url: '/rand',
+  	ContentType: 'application/json',
+  data:{
+  'data': s,
+  'invest':invVal,
+  'username':username
+	},
+success: function(response){
+        console.log( response)
+        r=response
+        r=r.split(" ")
+        console.log(r[0])
+        console.log(typeof r[0])
+        if(parseInt(r[0])<0)
+		{
+			$("#didWin").text("You did not win.")
+			cr=(parseInt(cr)-parseInt(invVal)).toString()
+
+
+		}
+		else
+		{
+			$("#didWin").text("You did win! Congrats.")
+			cr=(parseInt(cr)+parseInt(r[0])).toString()
+		}
+
+		$("#WinNum").text("The winning num was "+r[1])
+
+		$("#credits").text("Right now you have "+cr+" credits")
+
+
+
+}
+})}
+else if(!loggedIn)
+		{
+			alert("Please log in first.")
+		}
+		else if(s==null)
+		{
+			alert("Please select your bet first.")
+		}
+		else
+		{
+		 alert("Not enough credits to continue.")
+		}
+
+});
+
+
+
+
+
+
+})
+
+
+</script>
+
+
+
+
+
+</body>
+
+</html>
